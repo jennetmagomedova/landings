@@ -115,11 +115,25 @@ svg * {
   transition-duration: var(--transition-duration);
 }
 
+a,
+button {
+  cursor: pointer;
+}
+
 ul {
   list-style: none;
 }
 
+h1 {
+  font-size: 60px;
+  line-height: 80px;
+  font-weight: 600;
+}
+
 .header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -203,6 +217,7 @@ ul {
   display: flex;
   align-items: center;
   justify-content: center;
+  column-gap: 25px;
   background-color: transparent;
   border: var(--border-gray-wide);
 
@@ -216,6 +231,10 @@ ul {
   background-color: var(--color-blue);
   color: var(--color-white);
   font-weight: 600;
+}
+
+.button--shadow {
+  box-shadow: 5px 5px 0 0 #000;
 }
 
 .footer {
@@ -267,6 +286,133 @@ ul {
   }
 }
 
+.hero__main {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.hero__info {
+  background-color: var(--color-green);
+  padding: 67px 20px 78px 200px;
+  position: relative;
+}
+
+.hero__title {
+  margin-bottom: 16px;
+}
+
+.hero__vector {
+  position: absolute;
+  top: 80px;
+  left: 500px;
+  transform: rotate(14deg);
+}
+
+.hero__description {
+  max-width: 475px;
+  margin-bottom: 64px;
+}
+
+.hero__field {
+  width: 100%;
+  max-width: 440px;
+  padding-bottom: 14px;
+  border-bottom: 1.5px solid var(--color-dark-gray);
+  margin-bottom: 42px;
+}
+
+.hero__field:has(.hero__input:focus) {
+  border-color: var(--color-white);
+}
+
+.hero__label {
+  display: none;
+}
+
+.hero__input {
+  background-color: transparent;
+  border: none;
+  font-size: 20px;
+
+  &:focus {
+    outline: none;
+  }
+
+  &::placeholder {
+    color: var(--color-dark-gray);
+  }
+}
+
+.hero__button {
+  position: relative;
+  font-size: 22px;
+  font-weight: 600;
+  padding-block: 19px;
+  border: none;
+
+  &::after {
+    position: absolute;
+    content: "";
+    left: 32%;
+    top: 80%;
+    width: 33px;
+    height: 40px;
+    transform: rotate(-15deg);
+    background: url("./assets/icons/hand.svg") center / cover no-repeat;
+  }
+}
+
+.hero__visual {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  position: relative;
+  padding-right: 140px;
+  background-color: var(--color-yellow);
+}
+
+.hero__raiting {
+  position: absolute;
+  top: 240px;
+  right: 130px;
+  display: inline-flex;
+  align-items: center;
+  column-gap: 5px;
+  background-color: var(--color-white);
+  border-radius: 15px;
+  padding: 17px 20px 14px;
+  box-shadow: 0 12px 20px 0 #ead55e;
+}
+
+.hero__raiting-value {
+  font-weight: 600;
+  font-size: 26px;
+}
+
+.hero__raiting-stars {
+  display: flex;
+}
+
+.hero__raiting-star {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+}
+
+.hero__partners {
+  padding-block: 43px;
+  background-color: var(--color-dark-gray);
+}
+
+.hero__partners-list {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  place-items: center;
+  max-width: 1440px;
+  margin-inline: auto;
+}
+
 @media (width <= 1440px) {
   .header {
     padding-left: 100px;
@@ -279,6 +425,28 @@ ul {
 
   .footer__menu {
     column-gap: 60px;
+  }
+
+  .hero__info {
+    padding-left: 100px;
+  }
+
+  .hero__vector {
+    left: 400px;
+  }
+
+  .hero__visual {
+    padding-right: 40px;
+  }
+
+  .hero__raiting {
+    top: 440px;
+    right: 10px;
+  }
+
+  .hero__partners-list {
+    grid-template-columns: repeat(3, 1fr);
+    row-gap: 40px;
   }
 }
 
@@ -295,6 +463,7 @@ ul {
   .header {
     padding-block: 25px;
   }
+
   .header__overlay {
     position: fixed;
     inset: 0;
@@ -305,9 +474,12 @@ ul {
     justify-content: center;
     row-gap: 80px;
     background-color: var(--color-green);
+    transition-duration: var(--transition-duration);
 
     &:not(.is-active) {
-      display: none;
+      opacity: 0;
+      visibility: hidden;
+      translate: 100%;
     }
   }
 
@@ -336,9 +508,22 @@ ul {
   .footer__info {
     margin-bottom: 40px;
   }
+
+  .hero__main {
+    grid-template-columns: 1fr;
+  }
+
+  .hero__visual {
+    display: none;
+  }
 }
 
 @media (width <=768px) {
+  h1 {
+    font-size: 40px;
+    line-height: 60px;
+  }
+
   .header {
     padding-inline: 40px;
   }
@@ -364,5 +549,25 @@ ul {
     grid-template-columns: repeat(2, 1fr);
     row-gap: 40px;
     column-gap: 40px;
+  }
+
+  .hero__info {
+    padding-inline: 40px;
+  }
+
+  .hero__vector {
+    top: 70px;
+    left: 250px;
+  }
+
+  .hero__partners-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (width <=480px) {
+  .hero__partners-list {
+    grid-template-columns: 1fr;
+    row-gap: 24px;
   }
 }
