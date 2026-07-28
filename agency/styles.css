@@ -535,6 +535,97 @@ h3 {
   padding: 9px 33px;
 }
 
+.team {
+  background-color: var(--color-dark-gray);
+  color: var(--color-white);
+  padding-block: 130px 125px;
+}
+
+.team__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  column-gap: 160px;
+  width: 100%;
+  max-width: 1422px;
+  padding-inline: 40px;
+  margin-inline: auto;
+}
+
+.team__visual {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px;
+}
+
+.team__image {
+  border: 2px solid var(--color-white);
+
+  &:first-child {
+    border-radius: 76px 76px 0 76px;
+  }
+
+  &:nth-child(2) {
+    border-radius: 76px 76px 76px 0;
+  }
+
+  &:nth-child(3) {
+    border-radius: 76px 0 76px 76px;
+  }
+
+  &:last-child {
+    border-radius: 0 76px 76px 76px;
+  }
+}
+
+.team__title {
+  margin-bottom: 8px;
+}
+
+.team__description {
+  margin-bottom: 57px;
+}
+
+.team__list {
+  display: inline-grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.team__item {
+  max-width: 276px;
+
+  &:nth-child(2n) {
+    padding-left: 10px;
+  }
+
+  &:nth-child(2n - 1) {
+    padding-right: 10px;
+  }
+
+  &:first-child,
+  &:nth-child(2) {
+    padding-bottom: 26px;
+  }
+
+  &:nth-child(3),
+  &:last-child {
+    padding-top: 26px;
+  }
+
+  &:first-child {
+    border-right: 2px solid #ff4e65;
+    border-bottom: 2px solid #ee27ff;
+  }
+
+  &:nth-child(3) {
+    border-right: 2px solid #ff9b00;
+  }
+
+  &:nth-child(2) {
+    border-bottom: 2px solid #1657ff;
+  }
+}
+
 @media (width <= 1440px) {
   .header {
     padding-left: 100px;
@@ -574,12 +665,26 @@ h3 {
   .services__list {
     column-gap: 60px;
   }
+
+  .team__inner {
+    column-gap: 40px;
+  }
+
+  .team__visual {
+    gap: 8px;
+  }
+
+  .team__image {
+    width: 240px;
+    height: auto;
+  }
 }
 
 @media (width > 1024px) {
   .header__overlay {
     display: contents;
   }
+
   .header__burger-button {
     display: none;
   }
@@ -666,6 +771,19 @@ h3 {
   .features__button {
     width: 100%;
   }
+
+  .team__inner {
+    flex-direction: column;
+    row-gap: 40px;
+  }
+
+  .team__info {
+    text-align: center;
+  }
+
+  .team__list {
+    text-align: left;
+  }
 }
 
 @media (width <=768px) {
@@ -737,5 +855,9 @@ h3 {
   .features__image {
     width: 100%;
     height: auto;
+  }
+
+  .team__image {
+    width: 140px;
   }
 }
