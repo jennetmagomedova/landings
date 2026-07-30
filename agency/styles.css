@@ -470,16 +470,17 @@ h3 {
   margin-inline: auto;
 }
 
-.services__eclipse {
+.bg__eclipse {
   position: absolute;
-  top: 60px;
-  left: 85%;
-  right: 100%;
+  top: 0;
+  right: 0;
   width: 152px;
   height: 152px;
   border-radius: 100%;
   background-color: #39ffcb;
   filter: blur(130px);
+  pointer-events: none;
+  z-index: -1;
 }
 
 .features {
@@ -624,6 +625,130 @@ h3 {
   &:nth-child(2) {
     border-bottom: 2px solid #1657ff;
   }
+}
+
+.pricing {
+  position: relative;
+  width: 100%;
+  max-width: 1360px;
+  margin-inline: auto;
+  padding: 80px 40px 94px;
+}
+
+.pricing__title {
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+.pricing__description {
+  max-width: 751px;
+  margin-inline: auto;
+  margin-bottom: 68px;
+}
+
+.pricing__list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 40px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  border-radius: 20px;
+  position: relative;
+  height: 100%;
+}
+
+.card--purple {
+  background-color: var(--color-purple);
+  border: var(--border-gray-wide);
+}
+
+.card--purple .card__item {
+  border-color: #948ac3;
+}
+
+.card--purple .card__item-title {
+  color: #2700ef;
+
+  &:before {
+    background-image: url("./assets/icons/tick-blue.svg");
+  }
+}
+
+.card--pink {
+  background-color: var(--color-pink);
+  box-shadow: 8px 8px 0 0 #1b1f28;
+}
+
+.card--pink .card__item {
+  border-color: #98584e;
+}
+
+.card--pink .card__item-title {
+  color: #d62308;
+
+  &:before {
+    background-image: url("./assets/icons/tick-red.svg");
+  }
+}
+
+.card__header {
+  padding: 34px 26px 19px 44px;
+  border-bottom: var(--border-gray-wide);
+}
+
+.card__title {
+  margin-bottom: 8px;
+}
+
+.card__body {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  margin: 0 26px 70px 44px;
+}
+
+.card__list {
+  margin-bottom: 70px;
+}
+
+.card__item {
+  padding: 24px 18px 24px 0;
+
+  &:not(:last-child) {
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+  }
+}
+
+.card__item-title {
+  position: relative;
+  margin-bottom: 12px;
+  padding-left: 46px;
+
+  &:before {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    content: "";
+    left: 0;
+    bottom: 0;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+}
+
+.card__item-description {
+  padding-left: 46px;
+}
+
+.card__button {
+  width: 100%;
+  padding-block: 18px;
+  margin-top: auto;
 }
 
 @media (width <= 1440px) {
@@ -784,9 +909,18 @@ h3 {
   .team__list {
     text-align: left;
   }
+
+  .pricing__list {
+    grid-template-columns: 1fr;
+    row-gap: 40px;
+  }
 }
 
 @media (width <=768px) {
+  body {
+    font-size: 14px;
+  }
+
   h1 {
     font-size: 40px;
     line-height: 60px;
@@ -843,6 +977,15 @@ h3 {
 
   .services__list {
     flex-direction: column;
+  }
+
+  .card__header {
+    padding-inline: 20px;
+  }
+
+  .card__body {
+    margin: 20px;
+    margin-top: 0;
   }
 }
 
