@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Manrope:wght@200..800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+    <script src="./scripts/main.js" type="module" defer></script>
+    <title>Teamollo</title>
+  </head>
+  <body>
+    <header class="header" data-js-header>
+      <a href="/" class="header__logo" title="Home" aria-label="Home">
+        <img
+          src="./assets/logo.svg"
+          alt=""
+          class="header__logo-image"
+          width="135"
+          height="41"
+        />
+      </a>
+      <div class="header__actions">
+        <button
+          class="header__button button hidden-mobile-s"
+          type="button"
+          aria-haspopup="dialog"
+          data-js-modal-open
+        >
+          Let’s talk
+        </button>
+        <button
+          class="header__burger-button burger-button"
+          type="button"
+          title="Open Menu"
+          aria-label="Open Menu"
+          data-js-burger-button
+        >
+          <span class="burger-button__line"></span>
+          <span class="burger-button__line"></span>
+        </button>
+      </div>
+      <nav class="header__menu" data-js-header-menu>
+        <ul class="header__menu-list">
+          <li class="header__menu-item">
+            <a href="/" class="header__menu-link">Home</a>
+          </li>
+          <li class="header__menu-item">
+            <a href="/" class="header__menu-link">About</a>
+          </li>
+          <li class="header__menu-item">
+            <a href="/" class="header__menu-link">Project</a>
+          </li>
+          <li class="header__menu-item">
+            <a href="/" class="header__menu-link">Feedback</a>
+          </li>
+          <li class="header__menu-item">
+            <a href="/" class="header__menu-link">Blog</a>
+          </li>
+          <li class="header__menu-item">
+            <a href="/" class="header__menu-link">Contact</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main></main>
+    <footer></footer>
+    <dialog
+      class="contact-modal"
+      aria-labelledby="contact-modal-title"
+      data-js-modal
+    >
+      <div class="contact-modal__content">
+        <button
+          class="contact-modal__close"
+          type="button"
+          aria-label="Close dialog"
+          title="Close dialog"
+          data-js-modal-close
+        >
+          <span aria-hidden="true">x</span>
+        </button>
+        <h2 class="contact-modal__title" id="contact-modal-title">
+          Let's work together
+        </h2>
+        <div class="contact-modal__description">
+          <p>Have a project in mind? Tell us about it.</p>
+        </div>
+        <form class="contact-modal__form">
+          <div class="contact-modal__field">
+            <label for="name" class="contact-modal__label">Name</label>
+            <input
+              class="contact-modal__input"
+              type="text"
+              id="name"
+              name="name"
+              autocomplete="name"
+              required
+            />
+          </div>
+          <div class="contact-modal__field">
+            <label for="email" class="contact-modal__label">Email</label>
+            <input
+              class="contact-modal__input"
+              type="email"
+              id="email"
+              name="email"
+              autocomplete="email"
+              required
+            />
+          </div>
+          <div class="contact-modal__field">
+            <label for="message" class="contact-modal__label">Message</label>
+            <textarea
+              class="contact-modal__textarea"
+              name="message"
+              id="message"
+              rows="3"
+              required
+            ></textarea>
+          </div>
+          <button class="contact-modal__button button" type="submit">
+            Send request
+          </button>
+        </form>
+      </div>
+    </dialog>
+  </body>
+</html>

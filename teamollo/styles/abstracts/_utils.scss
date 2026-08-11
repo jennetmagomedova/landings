@@ -1,0 +1,48 @@
+@use "./media" as media;
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  margin: -1px !important;
+  border: 0 !important;
+  padding: 0 !important;
+  white-space: nowrap !important;
+  clip-path: inset(100%) !important;
+  clip: rect(0 0 0 0) !important;
+  overflow: hidden !important;
+}
+
+.hidden-mobile {
+  @include media.mobile {
+    display: none !important;
+  }
+}
+
+.visible-mobile {
+  @include media.mobile-above {
+    display: none !important;
+  }
+}
+
+.hidden-mobile-s {
+  @include media.mobile-s {
+    display: none !important;
+  }
+}
+
+.visible-mobile-s {
+  @include media.mobile-s-above {
+    display: none !important;
+  }
+}
+
+:focus-visible {
+  outline: 2px dashed var(--color-dark);
+  outline-offset: 4px;
+  transition-duration: 0ms !important;
+}
+
+.is-lock {
+  overflow: hidden;
+}

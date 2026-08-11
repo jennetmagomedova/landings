@@ -1,0 +1,473 @@
+@charset "UTF-8";
+:root {
+  --color-light: #fff;
+  --color-dark: #000;
+  --color-gray: #a4a4a4;
+  --color-light-gray: #f1f4f8;
+  --color-green: #b5ed3d;
+  --border-radius: 100px;
+  --font-family-base: "Manrope", sans-serif;
+  --font-family-second: "Inter", sans-serif;
+  --tag-height: 60px;
+  --transition-duration: 0.2s;
+}
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  margin: -1px !important;
+  border: 0 !important;
+  padding: 0 !important;
+  white-space: nowrap !important;
+  clip-path: inset(100%) !important;
+  clip: rect(0 0 0 0) !important;
+  overflow: hidden !important;
+}
+
+@media (width <= 768px) {
+  .hidden-mobile {
+    display: none !important;
+  }
+}
+
+@media (width > 768px) {
+  .visible-mobile {
+    display: none !important;
+  }
+}
+
+@media (width <= 480px) {
+  .hidden-mobile-s {
+    display: none !important;
+  }
+}
+
+@media (width > 480px) {
+  .visible-mobile-s {
+    display: none !important;
+  }
+}
+
+:focus-visible {
+  outline: 2px dashed var(--color-dark);
+  outline-offset: 4px;
+  transition-duration: 0ms !important;
+}
+
+.is-lock {
+  overflow: hidden;
+}
+
+/**
+  Нормализация блочной модели
+ */
+*,
+::before,
+::after {
+  box-sizing: border-box;
+}
+
+/**
+  Убираем внутренние отступы слева тегам списков,
+  у которых есть атрибут class
+ */
+:where(ul, ol):where([class]) {
+  padding-left: 0;
+}
+
+/**
+  Убираем внешние отступы body и двум другим тегам,
+  у которых есть атрибут class
+ */
+body,
+:where(blockquote, figure, fieldset):where([class]) {
+  margin: 0;
+}
+
+/**
+  Убираем внешние отступы вертикали нужным тегам,
+  у которых есть атрибут class
+ */
+:where(h1, h2, h3, h4, h5, h6, p, ul, ol, dl):where([class]) {
+  margin-block: 0;
+}
+
+:where(dd[class]) {
+  margin-left: 0;
+}
+
+:where(fieldset[class]) {
+  padding: 0;
+  border: none;
+}
+
+/**
+  Убираем стандартный маркер маркированному списку,
+  у которого есть атрибут class
+ */
+:where(ul[class]) {
+  list-style: none;
+}
+
+:where(address[class]) {
+  font-style: normal;
+}
+
+/**
+  Обнуляем вертикальные внешние отступы параграфа,
+  объявляем локальную переменную для внешнего отступа вниз,
+  чтобы избежать взаимодействие с более сложным селектором
+ */
+p {
+  --paragraphMarginBottom: 24px;
+  margin-block: 0;
+}
+
+/**
+  Внешний отступ вниз для параграфа без атрибута class,
+  который расположен не последним среди своих соседних элементов
+ */
+p:where(:not([class]):not(:last-child)) {
+  margin-bottom: var(--paragraphMarginBottom);
+}
+
+/**
+  Упрощаем работу с изображениями и видео
+ */
+img,
+video {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/**
+  Наследуем свойства шрифт для полей ввода
+ */
+input,
+textarea,
+select,
+button {
+  font: inherit;
+}
+
+html {
+  /**
+    Пригодится в большинстве ситуаций
+    (когда, например, нужно будет "прижать" футер к низу сайта)
+   */
+  height: 100%;
+  /**
+    Убираем скачок интерфейса по горизонтали
+    при появлении / исчезновении скроллбара
+   */
+}
+@supports (scrollbar-gutter: stable) {
+  html {
+    scrollbar-gutter: stable;
+  }
+}
+html {
+  /**
+    Плавный скролл
+   */
+  scroll-behavior: smooth;
+}
+
+body {
+  /**
+    Пригодится в большинстве ситуаций
+    (когда, например, нужно будет "прижать" футер к низу сайта)
+   */
+  min-height: 100%;
+  /**
+    Унифицированный интерлиньяж
+   */
+  line-height: 1.5;
+}
+
+/**
+  Нормализация высоты элемента ссылки при его инспектировании в DevTools
+ */
+a:where([class]) {
+  display: inline-flex;
+}
+
+/**
+  Курсор-рука при наведении на элемент
+ */
+button,
+label {
+  cursor: pointer;
+}
+
+/**
+  Убирает серую подсветку при тапе на мобильных устройствах (iOS/Android)
+ */
+button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/**
+  Приводим к единому цвету svg-элементы
+  (за исключением тех, у которых уже указан
+  атрибут fill со значением 'none' или начинается с 'url')
+ */
+:where([fill]:not([fill=none], [fill^=url])) {
+  fill: currentColor;
+}
+
+/**
+  Приводим к единому цвету svg-элементы
+  (за исключением тех, у которых уже указан
+  атрибут stroke со значением 'none')
+ */
+:where([stroke]:not([stroke=none], [stroke^=url])) {
+  stroke: currentColor;
+}
+
+/**
+  Чиним баг задержки смены цвета при взаимодействии с svg-элементами
+ */
+svg * {
+  transition-property: fill, stroke;
+}
+
+/**
+  Приведение рамок таблиц в классический 'collapse' вид
+ */
+:where(table) {
+  border-collapse: collapse;
+  border-color: currentColor;
+}
+
+/**
+  Удаляем все анимации и переходы для людей,
+  которые предпочитают их не использовать
+ */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+body {
+  font-size: clamp(14px, 1.3888888889vw, 20px);
+  display: grid;
+  grid-template-rows: 1fr auto 1fr;
+  min-height: 1vh;
+  background-color: var(--color-dark);
+  color: var(--color-light);
+  font-family: var(--font-family-base);
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+a,
+button,
+input,
+textarea,
+svg * {
+  transition-duration: var(--transition-duration);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.header {
+  width: 100%;
+  max-width: 1720px;
+  margin-inline: auto;
+  padding: 40px 40px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  column-gap: 24px;
+}
+.header__menu {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  inset: 0;
+  background-color: var(--color-green);
+  color: var(--color-dark);
+  transition-duration: 0.4s;
+}
+.header__menu-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  row-gap: 24px;
+}
+.header__menu-link {
+  font-size: clamp(14px, 2.5vw, 36px);
+  text-transform: uppercase;
+}
+@media (hover: hover) {
+  .header__menu-link:hover {
+    color: var(--color-light);
+  }
+}
+@media (hover: none) {
+  .header__menu-link:active {
+    color: var(--color-light);
+  }
+}
+.header__menu:not(.is-active) {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateX(100%);
+}
+.header__actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  column-gap: 48px;
+}
+@media (width <= 768px) {
+  .header__actions {
+    column-gap: 24px;
+  }
+}
+@media (width <= 480px) {
+  .header__actions {
+    display: contents;
+  }
+}
+.header__button {
+  font-size: clamp(14px, 1.3888888889vw, 20px);
+  padding-inline: 48px;
+  background-color: transparent;
+  color: var(--color-light);
+  border: 2px solid var(--color-light);
+  font-weight: 600;
+}
+@media (hover: hover) {
+  .header__button:hover {
+    background-color: var(--color-green);
+    border-color: var(--color-green);
+    color: var(--color-dark);
+  }
+}
+@media (hover: none) {
+  .header__button:active {
+    background-color: var(--color-green);
+    border-color: var(--color-green);
+    color: var(--color-dark);
+  }
+}
+
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: var(--tag-height);
+  border-radius: var(--border-radius);
+}
+
+.burger-button {
+  width: 44px;
+  height: 44px;
+  aspect-ratio: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  row-gap: 10px;
+  padding-block: 15px;
+  background-color: transparent;
+  border: none;
+  transition-duration: var(--transition-duration);
+  z-index: 10;
+}
+.burger-button__line {
+  width: 100%;
+  height: 2px;
+  background-color: var(--color-light);
+}
+.burger-button.is-active .burger-button__line {
+  background-color: var(--color-dark);
+}
+.burger-button.is-active .burger-button__line:first-child {
+  transform: translateY(200%) rotate(45deg);
+}
+.burger-button.is-active .burger-button__line:last-child {
+  transform: translateY(-350%) rotate(-45deg);
+}
+@media (hover: hover) {
+  .burger-button:hover {
+    scale: 1.1;
+  }
+}
+@media (hover: none) {
+  .burger-button:active {
+    scale: 1.1;
+  }
+}
+
+.contact-modal {
+  width: min(90vw, 400px);
+  max-height: 90vh;
+  background-color: transparent;
+  border: none;
+}
+.contact-modal__content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  row-gap: 12px;
+  background-color: var(--color-green);
+  padding: 48px 24px 24px;
+}
+.contact-modal__close {
+  width: 44px;
+  height: 44px;
+  aspect-ratio: 1;
+  font-size: clamp(20px, 2.2222222222vw, 32px);
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  background: transparent;
+  border: none;
+  font-weight: 600;
+  color: var(--color-dark);
+}
+@media (hover: hover) {
+  .contact-modal__close:hover {
+    color: var(--color-green);
+  }
+}
+@media (hover: none) {
+  .contact-modal__close:active {
+    color: var(--color-green);
+  }
+}
+.contact-modal__form {
+  display: flex;
+  flex-direction: column;
+  row-gap: 12px;
+  width: 100%;
+}
+.contact-modal__field {
+  display: flex;
+  flex-direction: column;
+  row-gap: 4px;
+}
+.contact-modal__input, .contact-modal__textarea {
+  background-color: var(--color-light);
+  border: none;
+}
+.contact-modal::backdrop {
+  background: rgba(0, 0, 0, 0.6);
+  filter: blur(4px);
+}/*# sourceMappingURL=styles.css.map */

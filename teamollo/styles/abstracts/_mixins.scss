@@ -1,0 +1,18 @@
+@use "sass:math";
+
+@mixin fluid-text($max: 48, $min: 16) {
+  font-size: clamp(#{$min}px, #{math.div($max, 1440) * 100}vw, #{$max}px);
+}
+
+@mixin abs-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@mixin square($size) {
+  width: $size;
+  height: $size;
+  aspect-ratio: 1;
+}

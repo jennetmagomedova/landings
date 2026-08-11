@@ -1,0 +1,60 @@
+@use "../abstracts" as abstracts;
+
+.contact-modal {
+  width: min(90vw, 400px);
+  max-height: 90vh;
+  background-color: transparent;
+  border: none;
+
+  &__content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    row-gap: 12px;
+    background-color: var(--color-green);
+    padding: 48px 24px 24px;
+  }
+
+  &__close {
+    @include abstracts.square(44px);
+    @include abstracts.fluid-text(32, 20);
+
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    background: transparent;
+    border: none;
+    font-weight: 600;
+    color: var(--color-dark);
+
+    @include abstracts.hover {
+      color: var(--color-green);
+    }
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    row-gap: 12px;
+    width: 100%;
+  }
+
+  &__field {
+    display: flex;
+    flex-direction: column;
+    row-gap: 4px;
+  }
+
+  &__input,
+  &__textarea {
+    background-color: var(--color-light);
+    border: none;
+  }
+
+  &::backdrop {
+    background: rgba(0, 0, 0, 0.6);
+    filter: blur(4px);
+  }
+}

@@ -1,0 +1,39 @@
+@use "../abstracts/" as abstracts;
+
+.burger-button {
+  @include abstracts.square(44px);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  row-gap: 10px;
+  padding-block: 15px;
+  background-color: transparent;
+  border: none;
+  transition-duration: var(--transition-duration);
+  z-index: 10;
+
+  &__line {
+    width: 100%;
+    height: 2px;
+    background-color: var(--color-light);
+  }
+
+  &.is-active {
+    .burger-button__line {
+      background-color: var(--color-dark);
+    }
+
+    .burger-button__line:first-child {
+      transform: translateY(200%) rotate(45deg);
+    }
+
+    .burger-button__line:last-child {
+      transform: translateY(-350%) rotate(-45deg);
+    }
+  }
+
+  @include abstracts.hover {
+    scale: 1.1;
+  }
+}
