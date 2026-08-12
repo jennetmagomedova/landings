@@ -1,0 +1,134 @@
+@use "../abstracts/" as abstracts;
+
+.hero {
+  width: 100%;
+  margin-bottom: 118px;
+
+  background: url("../../assets/images/hero/hero_bg.png") top / contain
+    no-repeat;
+
+  @include abstracts.mobile {
+    background-size: 100% 50%;
+    margin-bottom: 60px;
+  }
+
+  @include abstracts.mobile-s {
+    background-size: 100% 45%;
+  }
+
+  &__main {
+    padding: 244px 146px 0 137px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    color: var(--color-light);
+
+    @include abstracts.tablet {
+      padding: 160px 40px 40px;
+      gap: 24px;
+    }
+
+    @include abstracts.mobile {
+      grid-template-columns: 1fr;
+      padding-top: 120px;
+    }
+  }
+
+  &__title {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 22px;
+
+    span:not(:first-child) {
+      margin-top: -5%;
+    }
+
+    span:nth-child(2) {
+      padding-left: 10%;
+    }
+
+    @include abstracts.tablet {
+      margin-bottom: 0;
+    }
+  }
+
+  &__description {
+    max-width: 245px;
+
+    p {
+      padding: 0;
+      margin-bottom: 30px;
+
+      @include abstracts.mobile-s {
+        margin-bottom: 16px;
+      }
+    }
+  }
+
+  &__visual {
+    position: relative;
+    margin-bottom: 120px;
+
+    @include abstracts.tablet {
+      margin-bottom: 80px;
+    }
+
+    @include abstracts.mobile-s {
+      margin-bottom: 40px;
+    }
+  }
+
+  &__image {
+    max-width: 85%;
+    height: auto;
+    margin-inline: auto;
+  }
+
+  &__pointer {
+    @include abstracts.square(120px);
+
+    position: absolute;
+    top: -60px;
+    left: 70%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-green);
+    border: 6px solid var(--color-light);
+    border-radius: var(--border-radius);
+
+    @include abstracts.tablet {
+      @include abstracts.square(80px);
+      top: -40px;
+    }
+
+    @include abstracts.mobile {
+      @include abstracts.square(60px);
+      top: -30px;
+    }
+  }
+
+  &__about {
+    max-width: 1660px;
+    padding-inline: 40px;
+    margin-inline: auto;
+    color: var(--color-dark);
+    letter-spacing: 1%;
+
+    &-greeting {
+      @include abstracts.fluid-text(30, 16);
+
+      font-weight: 600;
+
+      line-height: 2.4;
+      margin-bottom: 24px;
+    }
+
+    &-description {
+      @include abstracts.fluid-text(56, 24);
+    }
+  }
+}

@@ -258,11 +258,12 @@ svg * {
 }
 body {
   font-size: clamp(14px, 1.3888888889vw, 20px);
+  position: relative;
   display: grid;
   grid-template-rows: 1fr auto 1fr;
   min-height: 1vh;
-  background-color: var(--color-dark);
-  color: var(--color-light);
+  background-color: var(--color-light);
+  color: var(--color-gray);
   font-family: var(--font-family-base);
   font-optical-sizing: auto;
   font-weight: 400;
@@ -282,15 +283,24 @@ a {
   color: inherit;
 }
 
+h1 {
+  font-size: clamp(40px, 8.3333333333vw, 120px);
+  font-weight: 700;
+  letter-spacing: -2%;
+}
+
 .header {
+  position: absolute;
+  top: 40px;
   width: 100%;
   max-width: 1720px;
   margin-inline: auto;
-  padding: 40px 40px 0;
+  padding-inline: 40px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   column-gap: 24px;
+  color: var(--color-light);
 }
 .header__menu {
   position: fixed;
@@ -300,6 +310,7 @@ a {
   inset: 0;
   background-color: var(--color-green);
   color: var(--color-dark);
+  z-index: 5;
   transition-duration: 0.4s;
 }
 .header__menu-list {
@@ -414,10 +425,11 @@ a {
 }
 
 .contact-modal {
-  width: min(90vw, 400px);
+  width: min(90vw, 600px);
   max-height: 90vh;
   background-color: transparent;
   border: none;
+  z-index: 100;
 }
 .contact-modal__content {
   position: relative;
@@ -426,8 +438,10 @@ a {
   align-items: center;
   justify-content: space-between;
   row-gap: 12px;
-  background-color: var(--color-green);
+  background-color: var(--color-light);
   padding: 48px 24px 24px;
+  border: 4px solid var(--color-green);
+  border-radius: 24px;
 }
 .contact-modal__close {
   width: 44px;
@@ -463,11 +477,229 @@ a {
   flex-direction: column;
   row-gap: 4px;
 }
+.contact-modal__label {
+  font-size: 14px;
+  color: var(--color-gray);
+}
 .contact-modal__input, .contact-modal__textarea {
+  background-color: var(--color-light-gray);
+  border: 1px solid var(--color-light-gray);
+  border-radius: 8px;
+  padding: 8px;
+}
+.contact-modal__input:focus, .contact-modal__textarea:focus {
+  color: var(--color-dark);
+  border-color: var(--color-green);
   background-color: var(--color-light);
-  border: none;
+}
+.contact-modal__button {
+  background-color: var(--color-green);
+  border: 1px solid var(--color-green);
+  color: var(--color-light);
+  height: 40px;
+}
+@media (hover: hover) {
+  .contact-modal__button:hover {
+    background-color: transparent;
+    color: var(--color-dark);
+    border-color: var(--color-dark);
+  }
+}
+@media (hover: none) {
+  .contact-modal__button:active {
+    background-color: transparent;
+    color: var(--color-dark);
+    border-color: var(--color-dark);
+  }
 }
 .contact-modal::backdrop {
   background: rgba(0, 0, 0, 0.6);
   filter: blur(4px);
+}
+
+.hero {
+  width: 100%;
+  margin-bottom: 118px;
+  background: url("../../assets/images/hero/hero_bg.png") top/contain no-repeat;
+}
+@media (width <= 768px) {
+  .hero {
+    background-size: 100% 50%;
+    margin-bottom: 60px;
+  }
+}
+@media (width <= 480px) {
+  .hero {
+    background-size: 100% 45%;
+  }
+}
+.hero__main {
+  padding: 244px 146px 0 137px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  color: var(--color-light);
+}
+@media (width <= 1024px) {
+  .hero__main {
+    padding: 160px 40px 40px;
+    gap: 24px;
+  }
+}
+@media (width <= 768px) {
+  .hero__main {
+    grid-template-columns: 1fr;
+    padding-top: 120px;
+  }
+}
+.hero__title {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 22px;
+}
+.hero__title span:not(:first-child) {
+  margin-top: -5%;
+}
+.hero__title span:nth-child(2) {
+  padding-left: 10%;
+}
+@media (width <= 1024px) {
+  .hero__title {
+    margin-bottom: 0;
+  }
+}
+.hero__description {
+  max-width: 245px;
+}
+.hero__description p {
+  padding: 0;
+  margin-bottom: 30px;
+}
+@media (width <= 480px) {
+  .hero__description p {
+    margin-bottom: 16px;
+  }
+}
+.hero__visual {
+  position: relative;
+  margin-bottom: 120px;
+}
+@media (width <= 1024px) {
+  .hero__visual {
+    margin-bottom: 80px;
+  }
+}
+@media (width <= 480px) {
+  .hero__visual {
+    margin-bottom: 40px;
+  }
+}
+.hero__image {
+  max-width: 85%;
+  height: auto;
+  margin-inline: auto;
+}
+.hero__pointer {
+  width: 120px;
+  height: 120px;
+  aspect-ratio: 1;
+  position: absolute;
+  top: -60px;
+  left: 70%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-green);
+  border: 6px solid var(--color-light);
+  border-radius: var(--border-radius);
+}
+@media (width <= 1024px) {
+  .hero__pointer {
+    width: 80px;
+    height: 80px;
+    aspect-ratio: 1;
+    top: -40px;
+  }
+}
+@media (width <= 768px) {
+  .hero__pointer {
+    width: 60px;
+    height: 60px;
+    aspect-ratio: 1;
+    top: -30px;
+  }
+}
+.hero__about {
+  max-width: 1660px;
+  padding-inline: 40px;
+  margin-inline: auto;
+  color: var(--color-dark);
+  letter-spacing: 1%;
+}
+.hero__about-greeting {
+  font-size: clamp(16px, 2.0833333333vw, 30px);
+  font-weight: 600;
+  line-height: 2.4;
+  margin-bottom: 24px;
+}
+.hero__about-description {
+  font-size: clamp(24px, 3.8888888889vw, 56px);
+}
+
+.service {
+  width: 100%;
+  margin-inline: auto;
+  padding: 240px 40px 200px;
+  background-color: var(--color-dark);
+  color: var(--color-light);
+}
+@media (width <= 1440px) {
+  .service {
+    padding-block: 100px;
+  }
+}
+@media (width <= 768px) {
+  .service {
+    padding-block: 40px;
+  }
+}
+.service__inner {
+  max-width: 1640px;
+  margin-inline: auto;
+}
+.service__title {
+  font-size: clamp(24px, 2.0833333333vw, 30px);
+  font-weight: 700;
+  margin-bottom: 77px;
+}
+@media (width <= 1024px) {
+  .service__title {
+    margin-bottom: 40px;
+  }
+}
+.service__list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-items: start;
+  gap: 30px 22px;
+}
+@media (width <= 768px) {
+  .service__list {
+    row-gap: 16px;
+  }
+}
+.service__item {
+  font-size: clamp(24px, 3.8888888889vw, 56px);
+  padding: 20px 50px;
+  border: 1px solid var(--color-light);
+  border-radius: var(--border-radius);
+  font-weight: 600;
+}
+@media (width <= 1440px) {
+  .service__item {
+    padding: 20px;
+  }
 }/*# sourceMappingURL=styles.css.map */

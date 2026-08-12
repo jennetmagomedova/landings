@@ -67,7 +67,91 @@
         </ul>
       </nav>
     </header>
-    <main></main>
+    <main>
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero__main">
+          <h1 class="hero__title" id="hero-title">
+            <span>Let`s Talk</span>
+            <span>To Design</span>
+            <span>Teamollo</span>
+          </h1>
+          <div class="hero__description">
+            <p>
+              Here we go a small intro paragraph that talks about our company
+              and team
+            </p>
+            <svg
+              width="211"
+              height="8"
+              viewBox="0 0 211 8"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M210.354 4.03552C210.549 3.84026 210.549 3.52367 210.354 3.32841L207.172 0.14643C206.976 -0.0488322 206.66 -0.0488322 206.464 0.14643C206.269 0.341692 206.269 0.658275 206.464 0.853537L209.293 3.68196L206.464 6.51039C206.269 6.70565 206.269 7.02224 206.464 7.2175C206.66 7.41276 206.976 7.41276 207.172 7.2175L210.354 4.03552ZM0 3.68195L-4.37114e-08 4.18195L210 4.18196L210 3.68196L210 3.18196L4.37114e-08 3.18195L0 3.68195Z"
+                fill="white"
+                style="fill: white; fill-opacity: 1"
+              />
+            </svg>
+          </div>
+        </div>
+        <div class="hero__visual">
+          <img
+            class="hero__image"
+            src="./assets/images/hero/hero_office.png"
+            alt=""
+            width="1633"
+            height="789"
+            loading="lazy"
+          />
+          <span class="hero__pointer">
+            <svg
+              width="50"
+              height="50"
+              viewBox="0 0 50 50"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M35.527 26.9248C35.9427 27.3405 35.9427 28.0144 35.527 28.4301L25.5916 38.3656C25.392 38.5653 25.1212 38.6775 24.8389 38.6775C24.5566 38.6775 24.2857 38.5653 24.086 38.3656L14.1505 28.4301C13.7348 28.0144 13.7348 27.3405 14.1505 26.9248C14.5663 26.509 15.2403 26.509 15.6561 26.9248L23.7744 35.0429V12.0645C23.7744 11.4766 24.251 11 24.8389 11C25.4268 11 25.9034 11.4766 25.9034 12.0645V35.0429L34.0215 26.9248C34.4372 26.509 35.1112 26.509 35.527 26.9248Z"
+                fill="black"
+                style="fill: black; fill-opacity: 1"
+              />
+            </svg>
+          </span>
+        </div>
+        <div class="hero__about">
+          <p class="hero__about-greeting">Hello Stranger</p>
+          <div class="hero__about-description">
+            <p>
+              We are an award-winning strategic design company that provides
+              consultancy services worldwide. Our team consists of a superb
+              blend of thinkers, strategists, designers, researchers, developers
+              and organisers. Not too big,not too small,quite sensible and
+              completely independent.
+            </p>
+          </div>
+        </div>
+      </section>
+      <section class="service" aria-labelledby="service-title">
+        <div class="service__inner">
+          <h2 class="service__title" id="service-title">Our Service</h2>
+          <ul class="service__list">
+            <li class="service__item">Web Design</li>
+            <li class="service__item">Web Devolopment</li>
+            <li class="service__item">App design</li>
+            <li class="service__item">Branding Design</li>
+            <li class="service__item">3D Modeling</li>
+            <li class="service__item">Digital Marketing</li>
+            <li class="service__item">Animation</li>
+            <li class="service__item">web App Design & Development</li>
+            <li class="service__item">UI/UX</li>
+          </ul>
+        </div>
+      </section>
+    </main>
     <footer></footer>
     <dialog
       class="contact-modal"
@@ -92,34 +176,43 @@
         </div>
         <form class="contact-modal__form">
           <div class="contact-modal__field">
-            <label for="name" class="contact-modal__label">Name</label>
+            <label for="name" class="contact-modal__label visually-hidden"
+              >Name</label
+            >
             <input
               class="contact-modal__input"
               type="text"
               id="name"
               name="name"
               autocomplete="name"
+              placeholder="Name"
               required
             />
           </div>
           <div class="contact-modal__field">
-            <label for="email" class="contact-modal__label">Email</label>
+            <label for="email" class="contact-modal__label visually-hidden"
+              >Email</label
+            >
             <input
               class="contact-modal__input"
               type="email"
               id="email"
               name="email"
               autocomplete="email"
+              placeholder="Email"
               required
             />
           </div>
           <div class="contact-modal__field">
-            <label for="message" class="contact-modal__label">Message</label>
+            <label for="message" class="contact-modal__label visually-hidden"
+              >Message</label
+            >
             <textarea
               class="contact-modal__textarea"
               name="message"
               id="message"
               rows="3"
+              placeholder="Message"
               required
             ></textarea>
           </div>
