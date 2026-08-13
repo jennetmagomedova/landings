@@ -2,6 +2,7 @@
 
 .hero {
   width: 100%;
+
   margin-bottom: 118px;
 
   background: url("../../assets/images/hero/hero_bg.png") top / contain
@@ -17,7 +18,9 @@
   }
 
   &__main {
-    padding: 244px 146px 0 137px;
+    max-width: 1723px;
+    margin-inline: auto;
+    padding: 244px 40px 0;
     display: grid;
     grid-template-columns: 1fr auto;
     align-items: center;

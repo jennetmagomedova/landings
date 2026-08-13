@@ -1,0 +1,23 @@
+@use "../abstracts" as abstracts;
+
+.tags {
+  &__list {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    column-gap: 12px;
+  }
+
+  &__item {
+    @include abstracts.fluid-text(18, 14);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: var(--tag-height);
+    color: var(--color-dark);
+    border: 1px solid var(--color-gray);
+    border-radius: var(--border-radius);
+  }
+}
