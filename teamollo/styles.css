@@ -62,10 +62,14 @@
 /**
   Нормализация блочной модели
  */
-*,
-::before,
-::after {
+html {
   box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
 }
 
 /**
@@ -256,10 +260,16 @@ svg * {
     scroll-behavior: auto !important;
   }
 }
+html,
+body {
+  width: 100%;
+}
+
 body {
   font-size: clamp(14px, 1.3888888889vw, 20px);
   position: relative;
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
   grid-template-rows: auto 1fr auto;
   min-height: 100vh;
   background-color: var(--color-light);
@@ -268,6 +278,10 @@ body {
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
+}
+
+main {
+  min-width: 0;
 }
 
 a,
@@ -727,7 +741,7 @@ h3 {
 }
 @media (width <= 768px) {
   .features {
-    padding-block: 40px;
+    padding-block: 40px 80px;
   }
 }
 .features__header {
@@ -950,4 +964,182 @@ h3 {
   color: var(--color-dark);
   border: 1px solid var(--color-gray);
   border-radius: var(--border-radius);
+}
+
+.testimonials {
+  width: min(100%, 1758px);
+  margin-inline: auto;
+  margin-bottom: 260px;
+  padding-inline: 40px;
+  box-sizing: border-box;
+  color: var(--color-dark);
+}
+@media (width <= 1024px) {
+  .testimonials {
+    margin-bottom: 80px;
+  }
+}
+.testimonials__title {
+  font-size: clamp(32px, 3.8888888889vw, 56px);
+  margin-bottom: 54px;
+  font-weight: 700;
+  text-align: center;
+}
+@media (width <= 768px) {
+  .testimonials__title {
+    margin-bottom: 24px;
+  }
+}
+.testimonials__viewport {
+  width: 100%;
+  overflow: hidden;
+  margin-bottom: 72px;
+}
+.testimonials__track {
+  display: flex;
+}
+.testimonials__controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+}
+.testimonials__button {
+  width: 60px;
+  height: 60px;
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-dark);
+  border: none;
+  border-radius: var(--border-radius);
+}
+.testimonials__button * {
+  fill: var(--color-light);
+}
+@media (hover: hover) {
+  .testimonials__button:hover {
+    background-color: var(--color-green);
+  }
+}
+@media (hover: none) {
+  .testimonials__button:active {
+    background-color: var(--color-green);
+  }
+}
+.testimonials__button[disabled] {
+  background-color: var(--color-light-gray);
+  pointer-events: none;
+}
+.testimonials__button[disabled] * {
+  fill: var(--color-dark);
+}
+
+.card {
+  flex: 0 0 calc((100% - 58px) / 3);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 132px;
+  padding: 42px 40px 44px;
+  border-radius: 40px;
+  background-color: var(--color-light-gray);
+}
+@media (width <= 1024px) {
+  .card {
+    flex: 0 0 calc((100% - 16px) / 2);
+  }
+}
+@media (width <= 768px) {
+  .card {
+    flex: 0 0 100%;
+  }
+}
+.card__text {
+  font-size: clamp(18px, 2.0833333333vw, 30px);
+}
+.card__info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.card__image {
+  width: 60px;
+  height: 60px;
+  aspect-ratio: 1;
+  border-radius: var(--border-radius);
+}
+.card__name {
+  font-size: clamp(16px, 1.8055555556vw, 26px);
+  letter-spacing: -2.5%;
+}
+
+.rating {
+  display: flex;
+  align-items: center;
+  column-gap: 2px;
+}
+.rating__star {
+  width: 15px;
+  height: 15px;
+  aspect-ratio: 1;
+}
+.rating__star--active * {
+  fill: #ffc250;
+}
+
+.companies {
+  overflow-x: hidden;
+  margin-bottom: 200px;
+}
+@media (width <= 1024px) {
+  .companies {
+    margin-bottom: 80px;
+  }
+}
+.companies__title {
+  font-size: clamp(18px, 1.6666666667vw, 24px);
+  text-align: center;
+  font-weight: 400;
+  color: var(--color-dark);
+  margin-bottom: 52px;
+}
+.companies__list {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+}
+@media (width <= 1024px) {
+  .companies__list {
+    gap: 12px;
+  }
+}
+@media (width <= 768px) {
+  .companies__list {
+    flex-wrap: wrap;
+  }
+}
+.companies__item {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 395px;
+  height: 90px;
+  border: 2px solid var(--color-gray);
+  border-radius: var(--border-radius);
+}
+@media (width <= 1024px) {
+  .companies__item {
+    width: 200px;
+    height: 60px;
+  }
+}
+@media (width <= 1024px) {
+  .companies__image {
+    height: 20px;
+    width: auto;
+  }
 }/*# sourceMappingURL=styles.css.map */

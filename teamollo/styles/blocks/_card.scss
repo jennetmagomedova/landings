@@ -1,0 +1,42 @@
+@use "../abstracts" as abstracts;
+
+.card {
+  flex: 0 0 calc((100% - 58px) / 3);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 132px;
+  padding: 42px 40px 44px;
+  border-radius: 40px;
+  background-color: var(--color-light-gray);
+
+  @include abstracts.tablet {
+    flex: 0 0 calc((100% - 16px) / 2);
+  }
+
+  @include abstracts.mobile {
+    flex: 0 0 100%;
+  }
+
+  &__text {
+    @include abstracts.fluid-text(30, 18);
+  }
+
+  &__info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  &__image {
+    @include abstracts.square(60px);
+
+    border-radius: var(--border-radius);
+  }
+
+  &__name {
+    @include abstracts.fluid-text(26, 16);
+
+    letter-spacing: -2.5%;
+  }
+}

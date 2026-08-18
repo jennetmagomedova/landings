@@ -11,7 +11,7 @@
   }
 
   @include abstracts.mobile {
-    padding-block: 40px;
+    padding-block: 40px 80px;
   }
 
   &__header {

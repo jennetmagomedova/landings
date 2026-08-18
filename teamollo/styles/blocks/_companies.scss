@@ -1,0 +1,57 @@
+@use "../abstracts" as abstracts;
+
+.companies {
+  overflow-x: hidden;
+  margin-bottom: 200px;
+
+  @include abstracts.tablet {
+    margin-bottom: 80px;
+  }
+
+  &__title {
+    @include abstracts.fluid-text(24, 18);
+
+    text-align: center;
+    font-weight: 400;
+    color: var(--color-dark);
+    margin-bottom: 52px;
+  }
+
+  &__list {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+
+    @include abstracts.tablet {
+      gap: 12px;
+    }
+
+    @include abstracts.mobile {
+      flex-wrap: wrap;
+    }
+  }
+
+  &__item {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 395px;
+    height: 90px;
+    border: 2px solid var(--color-gray);
+    border-radius: var(--border-radius);
+
+    @include abstracts.tablet {
+      width: 200px;
+      height: 60px;
+    }
+  }
+
+  &__image {
+    @include abstracts.tablet {
+      height: 20px;
+      width: auto;
+    }
+  }
+}

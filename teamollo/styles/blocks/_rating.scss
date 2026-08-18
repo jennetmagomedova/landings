@@ -1,0 +1,15 @@
+@use "../abstracts" as abstracts;
+
+.rating {
+  display: flex;
+  align-items: center;
+  column-gap: 2px;
+
+  &__star {
+    @include abstracts.square(15px);
+
+    &--active * {
+      fill: #ffc250;
+    }
+  }
+}

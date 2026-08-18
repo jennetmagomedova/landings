@@ -1,0 +1,71 @@
+@use "../abstracts" as abstracts;
+
+.testimonials {
+  width: min(100%, 1758px);
+  margin-inline: auto;
+  margin-bottom: 260px;
+  padding-inline: 40px;
+  box-sizing: border-box;
+  color: var(--color-dark);
+
+  @include abstracts.tablet {
+    margin-bottom: 80px;
+  }
+
+  &__title {
+    @include abstracts.fluid-text(56, 32);
+
+    margin-bottom: 54px;
+    font-weight: 700;
+    text-align: center;
+
+    @include abstracts.mobile {
+      margin-bottom: 24px;
+    }
+  }
+
+  &__viewport {
+    width: 100%;
+    overflow: hidden;
+    margin-bottom: 72px;
+  }
+
+  &__track {
+    display: flex;
+  }
+
+  &__controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+  }
+
+  &__button {
+    @include abstracts.square(60px);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-dark);
+    border: none;
+    border-radius: var(--border-radius);
+
+    * {
+      fill: var(--color-light);
+    }
+
+    @include abstracts.hover {
+      background-color: var(--color-green);
+    }
+
+    &[disabled] {
+      background-color: var(--color-light-gray);
+      pointer-events: none;
+
+      * {
+        fill: var(--color-dark);
+      }
+    }
+  }
+}
