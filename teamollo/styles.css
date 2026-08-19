@@ -1142,4 +1142,216 @@ h3 {
     height: 20px;
     width: auto;
   }
+}
+
+.cta__body {
+  position: relative;
+  width: min(90%, 1640px);
+  height: 600px;
+  margin-inline: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 32px;
+  background-color: var(--color-light-gray);
+  border-radius: 40px;
+  z-index: 2;
+}
+.cta__title {
+  font-size: clamp(32px, 5vw, 72px);
+  text-align: center;
+  color: var(--color-dark);
+  letter-spacing: -2.5%;
+  line-height: 1.25;
+  font-weight: 700;
+}
+.cta__button {
+  width: 240px;
+  border: none;
+  background-color: var(--color-green);
+}
+@media (hover: hover) {
+  .cta__button:hover {
+    scale: 1.1;
+  }
+}
+@media (hover: none) {
+  .cta__button:active {
+    scale: 1.1;
+  }
+}
+.cta__companies {
+  width: 100%;
+  background-color: var(--color-dark);
+  padding-block: 364px 72px;
+  margin-top: -300px;
+}
+.cta__list {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: min(100%, 1755px);
+  padding-inline: 40px;
+  gap: 178px;
+}
+@media (width <= 1440px) {
+  .cta__list {
+    gap: 80px;
+  }
+}
+@media (width <= 1024px) {
+  .cta__list {
+    gap: 40px;
+  }
+}
+@media (width <= 768px) {
+  .cta__list {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+.footer {
+  width: min(100%, 1720px);
+  padding: 183px 40px 50px;
+  background-color: var(--color-green);
+  color: var(--color-dark);
+}
+.footer__top {
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+  margin-bottom: 196px;
+  letter-spacing: -2.5%;
+}
+@media (width <= 768px) {
+  .footer__top {
+    flex-direction: column;
+    justify-content: start;
+    margin-bottom: 60px;
+  }
+}
+.footer__cta {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.footer__title {
+  font-size: clamp(48px, 11.1111111111vw, 160px);
+  font-weight: 600;
+  line-height: 1.06;
+}
+.footer__button {
+  display: inline-flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 190px;
+  padding-inline: 27px 8px;
+  column-gap: 17px;
+  background-color: var(--color-light);
+  border: none;
+  font-size: 22px;
+}
+@media (hover: hover) {
+  .footer__button:hover .footer__button-arrow {
+    transform: rotate(-45deg);
+  }
+}
+@media (hover: none) {
+  .footer__button:active .footer__button-arrow {
+    transform: rotate(-45deg);
+  }
+}
+.footer__button-arrow {
+  width: 44px;
+  height: 44px;
+  aspect-ratio: 1;
+  background-color: var(--color-green);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--border-radius);
+}
+.footer__soc1als {
+  font-size: 22px;
+  line-height: 36px;
+  text-align: right;
+}
+@media (width <= 768px) {
+  .footer__soc1als {
+    text-align: left;
+  }
+}
+.footer__bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+  padding-bottom: 40px;
+  border-bottom: 2px solid var(--color-dark);
+}
+@media (width <= 1024px) {
+  .footer__bottom {
+    flex-direction: column;
+    align-items: start;
+  }
+}
+.footer__logo {
+  flex-shrink: 0;
+}
+.footer__menu-list {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 50px;
+  font-family: var(--font-family-second);
+  font-size: 20px;
+}
+@media (width <= 768px) {
+  .footer__menu-list {
+    flex-direction: column;
+    gap: 24px;
+    align-items: start;
+  }
+}
+@media (hover: hover) {
+  .footer__menu-item:hover {
+    color: var(--color-light);
+  }
+}
+@media (hover: none) {
+  .footer__menu-item:active {
+    color: var(--color-light);
+  }
+}
+.footer__extra {
+  font-size: clamp(14px, 1.3888888889vw, 20px);
+  padding-top: 50px;
+  line-height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+@media (width <= 1024px) {
+  .footer__extra {
+    flex-direction: column;
+    align-items: start;
+  }
+}
+@media (hover: hover) {
+  .footer__extra-link:hover {
+    color: var(--color-light);
+  }
+}
+@media (hover: none) {
+  .footer__extra-link:active {
+    color: var(--color-light);
+  }
+}
+@media (width <= 1024px) {
+  .footer__separator {
+    display: none;
+  }
 }/*# sourceMappingURL=styles.css.map */

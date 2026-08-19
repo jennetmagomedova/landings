@@ -1,0 +1,67 @@
+@use "../abstracts" as abstracts;
+
+.cta {
+  &__body {
+    position: relative;
+    width: min(90%, 1640px);
+    height: 600px;
+    margin-inline: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 32px;
+    background-color: var(--color-light-gray);
+    border-radius: 40px;
+    z-index: 2;
+  }
+
+  &__title {
+    @include abstracts.fluid-text(72, 32);
+
+    text-align: center;
+    color: var(--color-dark);
+    letter-spacing: -2.5%;
+    line-height: 1.25;
+    font-weight: 700;
+  }
+
+  &__button {
+    width: 240px;
+    border: none;
+    background-color: var(--color-green);
+
+    @include abstracts.hover {
+      scale: 1.1;
+    }
+  }
+
+  &__companies {
+    width: 100%;
+    background-color: var(--color-dark);
+    padding-block: 364px 72px;
+    margin-top: -300px;
+  }
+
+  &__list {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: min(100%, 1755px);
+    padding-inline: 40px;
+    gap: 178px;
+
+    @include abstracts.laptop {
+      gap: 80px;
+    }
+
+    @include abstracts.tablet {
+      gap: 40px;
+    }
+
+    @include abstracts.mobile {
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+  }
+}

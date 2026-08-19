@@ -1,0 +1,142 @@
+@use "../abstracts" as abstracts;
+
+.footer {
+  width: min(100%, 1720px);
+  padding: 183px 40px 50px;
+  background-color: var(--color-green);
+  color: var(--color-dark);
+
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+    margin-bottom: 196px;
+    letter-spacing: -2.5%;
+
+    @include abstracts.mobile {
+      flex-direction: column;
+      justify-content: start;
+      margin-bottom: 60px;
+    }
+  }
+
+  &__cta {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  &__title {
+    @include abstracts.fluid-text(160, 48);
+
+    font-weight: 600;
+    line-height: 1.06;
+  }
+
+  &__button {
+    display: inline-flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 190px;
+    padding-inline: 27px 8px;
+    column-gap: 17px;
+    background-color: var(--color-light);
+    border: none;
+    font-size: 22px;
+
+    @include abstracts.hover {
+      .footer__button-arrow {
+        transform: rotate(-45deg);
+      }
+    }
+
+    &-arrow {
+      @include abstracts.square(44px);
+
+      background-color: var(--color-green);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: var(--border-radius);
+    }
+  }
+
+  &__soc1als {
+    font-size: 22px;
+    line-height: 36px;
+    text-align: right;
+
+    @include abstracts.mobile {
+      text-align: left;
+    }
+  }
+
+  &__bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+    padding-bottom: 40px;
+    border-bottom: 2px solid var(--color-dark);
+
+    @include abstracts.tablet {
+      flex-direction: column;
+      align-items: start;
+    }
+  }
+
+  &__logo {
+    flex-shrink: 0;
+  }
+
+  &__menu {
+    &-list {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 50px;
+      font-family: var(--font-family-second);
+      font-size: 20px;
+
+      @include abstracts.mobile {
+        flex-direction: column;
+        gap: 24px;
+        align-items: start;
+      }
+    }
+
+    &-item {
+      @include abstracts.hover {
+        color: var(--color-light);
+      }
+    }
+  }
+
+  &__extra {
+    @include abstracts.fluid-text(20, 14);
+
+    padding-top: 50px;
+    line-height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    @include abstracts.tablet {
+      flex-direction: column;
+      align-items: start;
+    }
+
+    &-link {
+      @include abstracts.hover {
+        color: var(--color-light);
+      }
+    }
+  }
+
+  &__separator {
+    @include abstracts.tablet {
+      display: none;
+    }
+  }
+}
